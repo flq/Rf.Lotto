@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analysis\MinMaxDifferenceSearch.cs" />
+    <Compile Include="Analysis\MostPopularNumsInAPeriod.cs" />
     <Compile Include="Analysis\MostPopularNumsPerYear.cs" />
     <Compile Include="Analysis\FindYourHits.cs" />
     <Compile Include="Analysis\HowOftenWasANumberPulled.cs" />
@@ -61,6 +63,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Analysis\SanityCheckAllNumbers6.cs" />
+    <Compile Include="Usefulness.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Combinatorics\source.txt" />
