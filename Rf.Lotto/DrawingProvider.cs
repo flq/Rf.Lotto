@@ -16,10 +16,7 @@ namespace Rf.Lotto
 
     public static Drawing[] GetDrawings()
     {
-      return
-        GetDrawings(
-        typeof (DrawingProvider).Assembly
-        .GetManifestResourceStream(typeof (DrawingProvider), "lotto.txt"));
+      return GetDrawings(File.OpenRead("lotto.txt"));
     }
 
     private static IEnumerable<string> enumerate(StreamReader f)

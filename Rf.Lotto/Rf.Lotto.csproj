@@ -67,9 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Combinatorics\source.txt" />
-    <EmbeddedResource Include="lotto.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -79,4 +76,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>copy /Y $(SolutionDir)\lotto.txt $(TargetDir)</PostBuildEvent>
+  </PropertyGroup>
 </Project>
