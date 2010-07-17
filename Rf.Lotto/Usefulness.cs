@@ -1,3 +1,5 @@
+using System;
+using System.Globalization;
 using System.Linq;
 
 namespace Rf.Lotto
@@ -8,5 +10,10 @@ namespace Rf.Lotto
     {
       return string.Join(",", numbers.OrderBy(i => i).Select(i => i.ToString()).ToArray());
     }
+
+      public static DateTime AsDateTime(this string s)
+      {
+          return DateTime.ParseExact(s, "dd.MM.yyyy", CultureInfo.InvariantCulture);
+      }
   }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 
@@ -14,7 +15,7 @@ namespace Rf.Lotto
     public Drawing(string data)
     {
       var parts =  data.Split(',');
-      DayOfDraw = DateTime.Parse(parts[0]);
+      DayOfDraw = parts[0].AsDateTime();
       Numbers = (from d in parts.Skip(1)
                  where d.Length > 0
                  select Int32.Parse(d)).ToArray();

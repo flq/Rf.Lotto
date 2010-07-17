@@ -10,8 +10,8 @@ namespace Rf.Lotto.Analysis
       Console.Write("Min and maxdate as dd.mm.yyyy, comma separated: ");
       string input = Console.ReadLine();
       var parts = input.Split(',');
-      var minDate = DateTime.Parse(parts[0]);
-      var maxDate = DateTime.Parse(parts[1]);
+      var minDate = parts[0].AsDateTime();
+      var maxDate = parts[1].AsDateTime();
 
       var result = from d in drawings
                    where d.DayOfDraw >= minDate && d.DayOfDraw <= maxDate
