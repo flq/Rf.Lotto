@@ -1,12 +1,12 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rf.Lotto", "Rf.Lotto\Rf.Lotto.csproj", "{F4F39FD6-8B42-4357-90EA-BE975318EB29}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{758A1F46-E8C0-46CE-9292-F984AB9D24F5}"
 	ProjectSection(SolutionItems) = preProject
 		lotto.txt = lotto.txt
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rf.Lotto", "Rf.Lotto\Rf.Lotto.csproj", "{F4F39FD6-8B42-4357-90EA-BE975318EB29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
