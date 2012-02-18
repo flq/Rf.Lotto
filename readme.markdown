@@ -1,7 +1,7 @@
 Welcome to the Rf.Lotto project!
 
 Most of the value comes from lotto data from germany in machine readable format. 
-As of today (03.09.2011) it contains 3144 drawings over a period of 54 years.
+As of today (18.02.2012) it contains 3190 drawings over a period of 57 years.
 
 The first 35 drawings do not include the "Zusatzzahl". 
 Starting with January 2001, Wednesday and Saturday drawings are available. Before that only Saturday drawings are available.
