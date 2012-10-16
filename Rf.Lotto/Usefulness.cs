@@ -8,7 +8,7 @@ namespace Rf.Lotto
   {
     public static string AsString(this int[] numbers)
     {
-      return string.Join(",", numbers.OrderBy(i => i).Select(i => i.ToString()).ToArray());
+      return string.Join(",", numbers.OrderBy(i => i).Select(i => i.ToString()));
     }
 
       public static DateTime AsDateTime(this string s)
