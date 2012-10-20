@@ -1,0 +1,19 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+
+@{
+    Layout = "_Layout.cshtml";
+    ViewBag.Title = "Upload Lotto data";
+}
+
+<h1>Upload</h1>
+
+@if (ViewBag.Processed)
+{
+    <h2>Successfully processed @ViewBag.DataCount</h2>
+}
+
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <label>Here you can upload the current version of the lotto data</label>
+    <input type="file" name="data" size="30" />
+    <input type="submit" />
+</form>

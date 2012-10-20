@@ -8,6 +8,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{758A1F46-E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rf.Lotto", "Rf.Lotto\Rf.Lotto.csproj", "{F4F39FD6-8B42-4357-90EA-BE975318EB29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LottoSite", "LottoSite\LottoSite.csproj", "{4E6FEE56-F2C7-44FB-BECB-40F8CD01D49A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8EA620D5-AD49-4585-B48F-53D1E427B948}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +27,10 @@ Global
 		{F4F39FD6-8B42-4357-90EA-BE975318EB29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4F39FD6-8B42-4357-90EA-BE975318EB29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4F39FD6-8B42-4357-90EA-BE975318EB29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E6FEE56-F2C7-44FB-BECB-40F8CD01D49A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E6FEE56-F2C7-44FB-BECB-40F8CD01D49A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E6FEE56-F2C7-44FB-BECB-40F8CD01D49A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E6FEE56-F2C7-44FB-BECB-40F8CD01D49A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
