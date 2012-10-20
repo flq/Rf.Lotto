@@ -1,0 +1,17 @@
+label {
+	display: block;
+}
+
+fieldset {
+	margin-left: 20px;
+	display: block;
+	border: none;
+}
+
+input[type="submit"] {
+	margin-top: 10px;
+	margin-left: 30px;
+	font-size: 16px;
+	background: white;
+	border: solid 1px black;
+}

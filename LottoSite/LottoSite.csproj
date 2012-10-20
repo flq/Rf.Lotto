@@ -82,6 +82,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\banner.jpg" />
+    <Content Include="Content\images\menu-background.png" />
+    <Content Include="Content\images\menu-hover.png" />
+    <Content Include="Content\ownstyles.css" />
+    <Content Include="Content\styles.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -116,7 +121,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>65510</DevelopmentServerPort>
+          <DevelopmentServerPort>62742</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
