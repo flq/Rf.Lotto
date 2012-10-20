@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,10 +6,10 @@ using Rf.Lotto;
 
 namespace LottoSite
 {
-    public class Drawing : IEnumerable<int>
+    public class Drawing
     {
         public DateTime DayOfDraw { get; set; }
-        public int[] Numbers { get; set; }
+        public IList<int> Numbers { get; set; }
 
         public Drawing() { }
 
@@ -20,18 +19,9 @@ namespace LottoSite
             DayOfDraw = parts[0].AsDateTime();
             Numbers = (from d in parts.Skip(1)
                        where d.Length > 0
-                       select Int32.Parse(d)).ToArray();
+                       select Int32.Parse(d)).ToList();
         }
 
-        public IEnumerator<int> GetEnumerator()
-        {
-            return Numbers.Cast<int>().GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
 
         public void Write(TextWriter writer)
         {

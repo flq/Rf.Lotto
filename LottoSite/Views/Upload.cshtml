@@ -9,7 +9,15 @@
 
 @if (ViewBag.Processed)
 {
-    <h2>Successfully processed @ViewBag.DataCount</h2>
+    if (@ViewBag.DataCount > 0)
+    {
+        <h2>Successfully processed @ViewBag.DataCount drawings.</h2>
+    }
+    else
+    {
+        <h2>No items were processed. This probably means that you did not provide any new drawings.</h2>
+    }
+
 }
 
 <form action="/upload" method="post" enctype="multipart/form-data">
