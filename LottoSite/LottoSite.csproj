@@ -92,9 +92,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CountByYearModel.cs" />
+    <Compile Include="Indexes\NumberCount_ByYear.cs" />
     <Compile Include="Lib\Boostrapping.cs" />
     <Compile Include="Lib\DocumentStoreContainer.cs" />
     <Compile Include="Drawing.cs" />
+    <Compile Include="Lib\Importer.cs" />
     <Compile Include="MainModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usefulness.cs" />
@@ -104,7 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Index.cshtml" />
-    <Content Include="Views\Single.cshtml" />
+    <Content Include="Views\CountByYear.cshtml" />
     <Content Include="Views\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>

@@ -20,12 +20,12 @@ namespace LottoSite
 
         public static IDocumentStore Initialize()
         {
-            Raven.Database.Server.NonAdminHttp.EnsureCanListenToWhenInNonAdminContext(8092);
             _instance = new EmbeddableDocumentStore
                         {
                             ConnectionStringName = "RavenDB"
                         };
             _instance.Initialize();
+            Raven.Client.Indexes.IndexCreation.CreateIndexes(typeof (DocumentStoreContainer).Assembly, _instance);
             return _instance;
         }
     }

@@ -1,10 +1,8 @@
-﻿using System;
-using System.IO;
+﻿using System.Collections.Generic;
+using LottoSite.Indexes;
 using Nancy;
 using System.Linq;
 using Raven.Client;
-using Raven.Client.Exceptions;
-using Rf.Lotto;
 
 namespace LottoSite
 {
@@ -29,48 +27,28 @@ namespace LottoSite
                 var file = Request.Files.FirstOrDefault();
                 if (file != null)
                 {
-                    ViewBag.DataCount = ImportFile(file.Value);
+                    ViewBag.DataCount = new Importer(store).ImportFile(file.Value);
                     ViewBag.Processed = true;
                 }
                 
                 return View["Upload"];
             };
+
+            Get["/count_by_year"] = parameters =>
+            {
+                var numbers = GetNumbers(Request.Query.Year);
+                return View["CountByYear", new CountByYearModel(Request.Query.Year, numbers)];
+            };
         }
 
-        private int ImportFile(Stream data)
+        private IEnumerable<NumberCountByYearResult> GetNumbers(int year)
         {
             using (var s = _store.OpenSession())
             {
-                var count = s.Query<Drawing>().Count();
-                var lastDate = count == 0 ? 
-                    DateTime.MinValue : 
-                    s.Query<Drawing>().OrderByDescending(d => d.DayOfDraw).FirstOrDefault().DayOfDraw;
-
-                using (var f = new StreamReader(data))
-                {
-                    var parsedData = f.Enumerate()
-                        .Select(l => new Drawing(l))
-                        .TakeWhile(d => d.DayOfDraw > lastDate)
-                        .ToList();
-
-                    foreach (var d in parsedData)
-                    {
-                        try
-                        {
-                            s.Store(d, d.DayOfDraw.ToString("yyyyMMdd"));
-                        }
-                        catch (NonUniqueObjectException)
-                        {
-                            //I don't expect more than 2 drawings on a day in the set.
-                            s.Store(d, d.DayOfDraw.ToString("yyyyMMdd") + "-2");
-                        }
-                    }
-
-                    s.SaveChanges();
-
-                    return parsedData.Count;
-                }
+                return s.Query<NumberCountByYearResult, NumberCount_ByYear>().Where(r => r.Year == year).ToList();
             }
         }
+
+        
     }
 }

@@ -1,0 +1,13 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<LottoSite.CountByYearModel>
+
+@{
+    Layout = "_Layout.cshtml";
+    ViewBag.Title = "How often were numbers drawn in the year " + @Model.Year + ".";
+}
+
+<ul>
+@foreach(var entry in Model)
+{
+    <li>@entry.Year, @entry.Number, @entry.Count</li>
+}
+</ul>

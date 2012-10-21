@@ -9,6 +9,7 @@ namespace LottoSite
     public class Drawing
     {
         public DateTime DayOfDraw { get; set; }
+
         public IList<int> Numbers { get; set; }
 
         public Drawing() { }
@@ -26,12 +27,12 @@ namespace LottoSite
         public void Write(TextWriter writer)
         {
             writer.WriteLine(DayOfDraw.ToString("dd.MM.yyyy") + ","
-                             + string.Join(",", Numbers.Select(n => n.ToString().PadLeft(2)).ToArray()));
+                             + string.Join(",", Numbers.Select(n => n.ToString().PadLeft(2))));
         }
 
         public override string ToString()
         {
-            return "[" + string.Join(",", Numbers.Select(i => i.ToString()).ToArray()) + "]";
+            return "[" + string.Join(",", Numbers.Select(i => i.ToString())) + "]";
         }
     }
 }
