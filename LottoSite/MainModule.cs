@@ -6,11 +6,7 @@ using Raven.Client;
 
 namespace LottoSite
 {
-    /// <summary>
-    /// Main Nancy module
-    /// </summary>
-    /// <author>flq</author>
-    /// <initialCreationDate>16.10.2012</initialCreationDate>
+
     public class MainModule : NancyModule
     {
         private readonly IDocumentStore _store;
@@ -45,7 +41,11 @@ namespace LottoSite
         {
             using (var s = _store.OpenSession())
             {
-                return s.Query<NumberCountByYearResult, NumberCount_ByYear>().Where(r => r.Year == year).ToList();
+                return s.Query<NumberCountByYearResult, NumberCount_ByYear>()
+                    .Customize(c => c.WaitForNonStaleResults())
+                    .Where(r => r.Year == year)
+                    .OrderByDescending(r => r.Count)
+                    .ToList();
             }
         }
 

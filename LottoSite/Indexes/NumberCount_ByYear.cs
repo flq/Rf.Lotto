@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Raven.Abstractions.Indexing;
 using Raven.Client.Indexes;
 
 namespace LottoSite.Indexes
@@ -8,23 +9,25 @@ namespace LottoSite.Indexes
     {
         public NumberCount_ByYear()
         {
-            Map = drawings => from d in drawings
-                              from number in d.Numbers
-                              select new
-                                     {
-                                         d.DayOfDraw.Year,
-                                         Number = number,
-                                         Count = 1
-                                     };
-            Reduce = results => from r in results
-                                group r by r.Number
-                                into numbers
-                                select new
-                                       {
-                                           numbers.First().Year,
-                                           Number = numbers.Key,
-                                           Count = numbers.Count()
-                                       };
+            Map = drawings =>
+                  from d in drawings
+                  from number in d.Numbers
+                  select new
+                    {
+                        d.DayOfDraw.Year,
+                        Number = number,
+                        Count = 1
+                    };
+            Reduce = results =>
+                     from r in results
+                     group r by new {r.Year, r.Number}
+                     into yearAndNumber
+                     select new
+                    {
+                        yearAndNumber.Key.Year,
+                        yearAndNumber.Key.Number,
+                        Count = yearAndNumber.Sum(_ => _.Count)
+                    };
         }
     }
 
